@@ -11,14 +11,13 @@ const BlogLink = styled(Link)`
 
 const BlogTitle = styled.h3`
   margin-bottom: 20px;
-  color: blue;
 `
 
 export default ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <div>
-      <h1>Yihua's Thoughts</h1>
+      <h1>Jordan's Thoughts</h1>
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>

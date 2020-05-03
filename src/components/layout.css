@@ -1,3 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Oswald&display=swap");
+
+:root {
+  --color-light-bg: #f4f3f0;
+  --color-dark-bg: #333040;
+  --color-primary: #728fb2;
+  --color-secondary: #cab355;
+  --color-tertiary: #8b6247;
+  --font-heading: "Montserrat", sans-serif;
+  --font-default: "Oswald", sans-serif;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -41,10 +53,12 @@ template {
 }
 a {
   background-color: transparent;
+  color: var(--color-primary);
   -webkit-text-decoration-skip: objects;
 }
 a:active,
 a:hover {
+  color: var(--color-tertiary);
   outline-width: 0;
 }
 abbr[title] {
@@ -199,8 +213,9 @@ html {
   box-sizing: inherit;
 }
 body {
+  background-color: var(--color-light-bg);
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: var(--font-default);
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -321,6 +336,14 @@ h6 {
   text-rendering: optimizeLegibility;
   font-size: 0.78405rem;
   line-height: 1.1;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }
 hgroup {
   margin-left: 0;
