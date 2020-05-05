@@ -1,7 +1,7 @@
 ---
 title: "Code Conveyor is back"
 date: "2020-05-03"
-description: "My first post in a long time"
+description: "Thought"
 ---
 
 ### It's been a while.

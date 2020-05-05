@@ -1,17 +1,9 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import styled from "styled-components"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
-const BlogLink = styled(Link)`
-  text-decoration: none;
-`
-
-const BlogTitle = styled.h3`
-  margin-bottom: 20px;
-`
+import PostPreview from "../components/post-preview"
 
 export default ({ data }) => (
   <Layout>
@@ -20,14 +12,7 @@ export default ({ data }) => (
       <h1>Jordan's Thoughts</h1>
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          <BlogLink to={node.fields.slug}>
-            <BlogTitle>
-              {node.frontmatter.title} - {node.frontmatter.date}
-            </BlogTitle>
-          </BlogLink>
-          <p>{node.excerpt}</p>
-        </div>
+        <PostPreview key={node.id} node={node} />
       ))}
     </div>
   </Layout>
