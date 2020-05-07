@@ -15,7 +15,7 @@ const getDescriptionStyle = description => {
   }
 }
 
-const BlogContainer = styled.div`
+export const BlogContainer = styled.div`
   background-color: white;
   border-radius: 2px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 50%);
@@ -23,21 +23,21 @@ const BlogContainer = styled.div`
   margin-bottom: 20px;
 `
 
-const BlogLink = styled(Link)`
+export const BlogLink = styled(Link)`
   text-decoration: none;
 `
 
-const BlogInfo = styled.p`
+export const BlogInfo = styled.p`
   color: rgba(0, 0, 0, 0.4);
   font-size: 0.8rem;
   margin-bottom: 20px;
 `
 
-const BlogTitle = styled.h3`
+export const BlogTitle = styled.h3`
   margin-bottom: 0;
 `
 
-const BlogDescription = styled.span`
+export const BlogDescription = styled.span`
   background-color: ${props => getDescriptionStyle(props.description)};
   border: 0.5px solid black;
   border-radius: 4px;
