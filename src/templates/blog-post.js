@@ -1,7 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import { DiscussionEmbed } from "disqus-react"
 import styled from "styled-components"
+
+import Layout from "../components/layout"
 
 import {
   BlogContainer,
@@ -23,6 +25,11 @@ export default ({ data }) => {
   const post = data.markdownRemark
   const image = post.frontmatter.image ? post.frontmatter.image : defaultImage
 
+  const disqusConfig = {
+    shortname: process.env.GATSBY_DISQUS_NAME,
+    config: { identifier: post.frontmatter.title },
+  }
+
   return (
     <Layout>
       <div>
@@ -38,7 +45,9 @@ export default ({ data }) => {
         </BlogInfo>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </BlogContainer>
-      <BlogContainer>comments</BlogContainer>
+      <BlogContainer>
+        <DiscussionEmbed {...disqusConfig} />
+      </BlogContainer>
     </Layout>
   )
 }
