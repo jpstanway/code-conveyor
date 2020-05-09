@@ -1,6 +1,15 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import styled from "styled-components"
+
+import MenuButton from "./menu-button"
+
+const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
 const Header = ({ siteTitle }) => (
   <header
@@ -8,7 +17,7 @@ const Header = ({ siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
-    <div
+    <HeaderContainer
       style={{
         margin: `0 auto`,
         maxWidth: 960,
@@ -25,7 +34,8 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-    </div>
+      <MenuButton />
+    </HeaderContainer>
   </header>
 )
 
