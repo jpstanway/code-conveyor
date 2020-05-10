@@ -49,8 +49,8 @@ const Hamburger = styled.div`
   }
 `
 
-export default () => (
-  <ButtonContainer>
+export default ({ onClick }) => (
+  <ButtonContainer onClick={onClick}>
     <Hamburger></Hamburger>
   </ButtonContainer>
 )

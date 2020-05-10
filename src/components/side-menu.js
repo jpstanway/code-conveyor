@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import Octicon, { Facebook, Twitter } from "@primer/octicons-react"
 
 import { BlogDescription } from "./post-preview"
 
 const SideMenuContainer = styled.div`
   background-color: var(--color-dark-bg);
   color: white;
+  display: ${props => (props.toggle ? "block;" : "none;")}
+  height: 100vh;
   padding: 20px;
 `
 
@@ -33,11 +34,11 @@ const SideMenuList = styled.ul`
   }
 `
 
-export default () => {
+export default ({ toggleSideMenu }) => {
   const postTypes = ["video", "guide", "thought"]
 
   return (
-    <SideMenuContainer>
+    <SideMenuContainer toggle={toggleSideMenu}>
       <SideMenuHeading>About Code Conveyor</SideMenuHeading>
       <AboutText>
         Hi, I'm Jordan. This is my blog where I share all my secrets (well, not
@@ -47,13 +48,17 @@ export default () => {
       <SideMenuHeading>Categories</SideMenuHeading>
       <SideMenuList>
         {postTypes.map(postType => (
-          <li>
+          <li key={postType}>
             <BlogDescription description={postType}>{postType}</BlogDescription>
           </li>
         ))}
       </SideMenuList>
       <SideMenuHeading>Links</SideMenuHeading>
-      <a href="https://www.facebook.com/codeconveyor" target="_blank">
+      <a
+        href="https://www.facebook.com/codeconveyor"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Facebook
       </a>
     </SideMenuContainer>

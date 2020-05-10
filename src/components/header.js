@@ -3,15 +3,13 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
 
-import MenuButton from "./menu-button"
-
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, children }) => (
   <header
     style={{
       marginBottom: `1.45rem`,
@@ -34,7 +32,7 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-      <MenuButton />
+      {children}
     </HeaderContainer>
   </header>
 )
