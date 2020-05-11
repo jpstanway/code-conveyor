@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 import { BlogDescription } from "./post-preview"
@@ -49,7 +50,11 @@ export default ({ toggleSideMenu }) => {
       <SideMenuList>
         {postTypes.map(postType => (
           <li key={postType}>
-            <BlogDescription description={postType}>{postType}</BlogDescription>
+            <Link to={`/categories/${postType}s`}>
+              <BlogDescription description={postType}>
+                {postType}
+              </BlogDescription>
+            </Link>
           </li>
         ))}
       </SideMenuList>

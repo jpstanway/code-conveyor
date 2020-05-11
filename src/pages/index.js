@@ -16,7 +16,7 @@ export default ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <div>
-        <h1>Jordan's Thoughts</h1>
+        <h1>Jordan's Blog</h1>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {visiblePosts.map(({ node }) => (
           <PostPreview key={node.id} node={node} />

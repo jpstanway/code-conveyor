@@ -1,7 +1,7 @@
 ---
 title: "Code Conveyor is back"
 date: "2020-05-03"
-description: "Thought"
+description: "thought"
 image:
   {
     location: "https://res.cloudinary.com/mtninja/image/upload/v1588893951/code-conveyor/cc-logo-post.jpg",

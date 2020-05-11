@@ -22,9 +22,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
+
   return graphql(`
     {
-      allMarkdownRemark {
+      posts: allMarkdownRemark {
         edges {
           node {
             fields {
@@ -33,14 +34,31 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      categories: allMarkdownRemark {
+        group(field: frontmatter___description) {
+          fieldValue
+        }
+      }
     }
   `).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    // make post pages
+    result.data.posts.edges.forEach(({ node }) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve(`./src/templates/blog-post.js`),
         context: {
           slug: node.fields.slug,
+        },
+      })
+    })
+
+    // make category pages
+    result.data.categories.group.forEach(category => {
+      createPage({
+        path: `/categories/${category.fieldValue}s`,
+        component: path.resolve(`./src/templates/category.js`),
+        context: {
+          category: category.fieldValue,
         },
       })
     })
