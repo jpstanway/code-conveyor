@@ -9,22 +9,23 @@ import PostsNavigation from "../components/posts-navigation"
 export default ({ data }) => {
   const [filter, setFilter] = useState(0)
 
-  const visiblePosts = data.allMarkdownRemark.edges.slice(filter, filter + 10)
-  const postsLength = data.allMarkdownRemark.edges.length
+  const { edges, totalCount } = data.allMarkdownRemark
+  const postCount = `${totalCount} Post${totalCount > 1 ? "s" : ""}`
+  const visiblePosts = edges.slice(filter, filter + 10)
 
   return (
     <Layout>
       <SEO title="Home" />
       <div>
         <h1>Jordan's Blog</h1>
-        <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+        <h4>{postCount}</h4>
         {visiblePosts.map(({ node }) => (
           <PostPreview key={node.id} node={node} />
         ))}
         <PostsNavigation
           filter={filter}
           setFilter={setFilter}
-          postsLength={postsLength}
+          postsLength={totalCount}
         />
       </div>
     </Layout>

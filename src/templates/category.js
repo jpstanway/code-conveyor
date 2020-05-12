@@ -10,22 +10,17 @@ export default ({ pageContext, data }) => {
 
   const { category } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
-  let visiblePosts
-
-  if (totalCount === 0) {
-    visiblePosts = <p>No posts available</p>
-  } else {
-    visiblePosts = edges
-      .slice(filter, filter + 10)
-      .map(({ node }) => <PostPreview key={node.id} node={node} />)
-  }
+  const postCount = `${totalCount} Post${totalCount > 1 ? "s" : ""}`
+  const visiblePosts = edges.slice(filter, filter + 10)
 
   return (
     <Layout>
       <div>
         <h1>{`${category.toUpperCase()}S`}</h1>
-        <h4>{totalCount} Posts</h4>
-        {visiblePosts}
+        <h4>{postCount}</h4>
+        {visiblePosts.map(({ node }) => (
+          <PostPreview key={node.id} node={node} />
+        ))}
         <PostsNavigation
           filter={filter}
           setFilter={setFilter}

@@ -22,16 +22,21 @@ const Header = ({ siteTitle, children }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
+      <Link
+        to="/"
+        style={{
+          textDecoration: `none`,
+        }}
+      >
+        <img
+          src="https://res.cloudinary.com/mtninja/image/upload/v1589312573/code-conveyor/code-conveyor.png"
+          alt={siteTitle}
           style={{
-            textDecoration: `none`,
+            marginLeft: `-26px`,
+            marginBottom: `0`,
           }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+        />
+      </Link>
       {children}
     </HeaderContainer>
   </header>
