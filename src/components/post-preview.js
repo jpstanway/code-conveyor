@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -49,7 +50,7 @@ export const BlogDescription = styled.span`
   text-transform: uppercase;
 `
 
-export default ({ node }) => (
+const PostPreview = ({ node }) => (
   <BlogContainer>
     <BlogLink to={node.fields.slug}>
       <BlogTitle>{node.frontmatter.title}</BlogTitle>
@@ -63,3 +64,13 @@ export default ({ node }) => (
     <p>{node.excerpt}</p>
   </BlogContainer>
 )
+
+PostPreview.defaultProps = {
+  node: {},
+}
+
+PostPreview.propTypes = {
+  node: PropTypes.object.isRequired,
+}
+
+export default PostPreview

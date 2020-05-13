@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 import Octicon, { LineArrowLeft, LineArrowRight } from "@primer/octicons-react"
 
@@ -30,7 +31,7 @@ const PostsNavLink = styled.button`
   }
 `
 
-export default ({ filter, setFilter, postsLength }) => (
+const PostNavigation = ({ filter, setFilter, postsLength }) => (
   <div>
     <PostsNav>
       <li>
@@ -57,3 +58,16 @@ export default ({ filter, setFilter, postsLength }) => (
     </PostsNav>
   </div>
 )
+
+PostNavigation.defaultProps = {
+  filter: 0,
+  postsLength: 0,
+}
+
+PostNavigation.propTypes = {
+  filter: PropTypes.number.isRequired,
+  setFilter: PropTypes.func.isRequired,
+  postsLength: PropTypes.number.isRequired,
+}
+
+export default PostNavigation

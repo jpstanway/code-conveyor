@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 
 const ButtonContainer = styled.button`
@@ -49,8 +50,14 @@ const Hamburger = styled.div`
   }
 `
 
-export default ({ onClick }) => (
+const SideMenuButton = ({ onClick }) => (
   <ButtonContainer onClick={onClick}>
     <Hamburger></Hamburger>
   </ButtonContainer>
 )
+
+SideMenuButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+}
+
+export default SideMenuButton

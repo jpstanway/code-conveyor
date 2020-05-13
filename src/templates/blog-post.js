@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import { DiscussionEmbed } from "disqus-react"
 import styled from "styled-components"
@@ -21,7 +22,7 @@ const defaultImage = {
   alt: "code on a screen",
 }
 
-export default ({ data }) => {
+const BlogPost = ({ data }) => {
   const post = data.markdownRemark
   const image = post.frontmatter.image ? post.frontmatter.image : defaultImage
 
@@ -51,6 +52,16 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+BlogPost.defaultProps = {
+  data: {},
+}
+
+BlogPost.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
+export default BlogPost
 
 export const query = graphql`
   query($slug: String!) {

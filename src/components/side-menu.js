@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -35,7 +36,7 @@ const SideMenuList = styled.ul`
   }
 `
 
-export default ({ toggleSideMenu }) => {
+const SideMenu = ({ toggleSideMenu }) => {
   const postTypes = ["video", "guide", "thought"]
 
   return (
@@ -69,3 +70,9 @@ export default ({ toggleSideMenu }) => {
     </SideMenuContainer>
   )
 }
+
+SideMenu.propTypes = {
+  toggleSideMenu: PropTypes.bool.isRequired,
+}
+
+export default SideMenu
