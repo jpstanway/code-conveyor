@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import PostPreview from "../components/post-preview"
 import PostsNavigation from "../components/posts-navigation"
 
@@ -16,8 +17,13 @@ const Category = ({ pageContext, data }) => {
   const postCount = `${totalCount} post${totalCount > 1 ? "s" : ""}`
   const visiblePosts = edges.slice(filter, filter + 10)
 
+  const formatTitleTag = `${category.charAt(0).toUpperCase()}${category.slice(
+    1
+  )}s`
+
   return (
     <Layout>
+      <SEO title={formatTitleTag} />
       <div>
         <PageHeading>
           {category}s - {postCount}

@@ -5,6 +5,7 @@ import { DiscussionEmbed } from "disqus-react"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 import {
   BlogContainer,
@@ -33,6 +34,7 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} />
       <div>
         <img src={image.location} alt={image.alt} />
       </div>

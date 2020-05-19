@@ -60,13 +60,23 @@ const SideMenu = ({ toggleSideMenu }) => {
         ))}
       </SideMenuList>
       <SideMenuHeading>Links</SideMenuHeading>
-      <a
-        href="https://www.facebook.com/codeconveyor"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Facebook
-      </a>
+      <ul style={{ listStyle: "none" }}>
+        <li>
+          <a
+            href="https://www.facebook.com/codeconveyor"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+        </li>
+        <li>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+        </li>
+        <li>
+          <Link to="/terms">Terms</Link>
+        </li>
+      </ul>
     </SideMenuContainer>
   )
 }

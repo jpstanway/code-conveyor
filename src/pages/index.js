@@ -10,6 +10,7 @@ import PostsNavigation from "../components/posts-navigation"
 
 export const PageHeading = styled.h4`
   color: rgba(0, 0, 0, 0.6);
+  text-transform: capitalize;
 `
 
 const Index = ({ data }) => {
