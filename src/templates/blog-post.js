@@ -7,11 +7,20 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import {
-  BlogContainer,
-  BlogInfo,
-  BlogDescription,
-} from "../components/post-preview"
+import { BlogInfo, BlogDescription } from "../components/post-preview"
+
+const BlogContainer = styled.div`
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 50%);
+  padding: 2rem;
+  margin-bottom: 20px;
+
+  img {
+    display: block;
+    margin: 5rem auto;
+  }
+`
 
 const PostTitle = styled.h1`
   margin: 0;
